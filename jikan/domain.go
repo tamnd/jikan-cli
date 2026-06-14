@@ -45,12 +45,15 @@ func (Domain) Register(app *kit.App) {
 		Group:   "read",
 		List:    true,
 		Summary: "Search anime by title",
+		Args:    []kit.Arg{{Name: "query", Help: "search query"}},
 	}, animeOp)
 
 	kit.Handle(app, kit.OpMeta{
 		Name:    "anime-id",
 		Group:   "read",
+		Single:  true,
 		Summary: "Get anime by MAL ID",
+		Args:    []kit.Arg{{Name: "id", Help: "MAL anime ID"}},
 	}, animeIDOp)
 
 	kit.Handle(app, kit.OpMeta{
@@ -65,6 +68,7 @@ func (Domain) Register(app *kit.App) {
 		Group:   "read",
 		List:    true,
 		Summary: "Search manga by title",
+		Args:    []kit.Arg{{Name: "query", Help: "search query"}},
 	}, mangaOp)
 
 	kit.Handle(app, kit.OpMeta{
@@ -72,6 +76,7 @@ func (Domain) Register(app *kit.App) {
 		Group:   "read",
 		List:    true,
 		Summary: "Search characters by name",
+		Args:    []kit.Arg{{Name: "query", Help: "character name"}},
 	}, charactersOp)
 
 	kit.Handle(app, kit.OpMeta{
@@ -79,6 +84,7 @@ func (Domain) Register(app *kit.App) {
 		Group:   "read",
 		List:    true,
 		Summary: "Search voice actors and staff",
+		Args:    []kit.Arg{{Name: "query", Help: "person name"}},
 	}, peopleOp)
 
 	kit.Handle(app, kit.OpMeta{
@@ -86,6 +92,10 @@ func (Domain) Register(app *kit.App) {
 		Group:   "read",
 		List:    true,
 		Summary: "Anime for a specific season",
+		Args: []kit.Arg{
+			{Name: "year", Help: "year (e.g. 2024)"},
+			{Name: "season", Help: "season (winter, spring, summer, fall)"},
+		},
 	}, seasonOp)
 
 	kit.Handle(app, kit.OpMeta{
