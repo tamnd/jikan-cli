@@ -1,0 +1,10 @@
+title       = "jikan"
+baseURL     = "https://jikan-cli.tamnd.com/"
+description = "A command line for jikan."
+contentDir  = "content"
+outputDir   = "public"
+theme       = "tago-doks"
+syntaxHighlight = "true"
+
+[params]
+github = "https://github.com/tamnd/jikan-cli"
